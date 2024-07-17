@@ -1,0 +1,7 @@
+/.vs/
+/x64/
+*.sln
+cpp_practice/x64
+cpp_practice.vcxproj
+*.filters
+*.user

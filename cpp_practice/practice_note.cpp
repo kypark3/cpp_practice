@@ -6,63 +6,39 @@ using std::cout;
 using std::cin;
 using std::endl;
 
-class Person {
-	char *name;
-	int age;
+class AAA {
+	char *ch;
+	int a;
 public:
-	Person(const char name[], int age) {
-		cout << "create Person" << endl;
-		int name_len = strlen(name) + 1;
-		this->name = new char[name_len];
-		strcpy(this->name, name);
-		this->age = age;
+	explicit AAA(const char ch[], int a) : a(a) {
+		int len = strlen(ch) + 1;
+		this->ch = new char[len];
+		strcpy(this->ch, ch);
+		cout << "create" << endl;
+	}
+	
+	explicit AAA(const AAA &copy) : a(copy.a){
+		int len = strlen(copy.ch) + 1;
+		ch = new char[len];
+		strcpy(ch, copy.ch);
+	}
+	
+	~AAA() {
+		delete []ch;
+		cout << "delete" << endl;
 	}
 
-	Person() {
-		this->name = NULL;
-		this->age = 0;
+	int return_value() const {
+		return a;
 	}
-
-	~Person() {
-		delete[]name;
-	}
-
-	void initPerson(const char name[], int age);
-	void ShowPersonInfo() const;
 };
 
-void Person::initPerson(const char name[], int age) {
-	cout << "class function create Peroon" << endl;
-	int name_len = strlen(name) + 1;
-	this->name = new char[name_len];
-	strcpy(this->name, name);
-	this->age = age;
-}
-
-
-
-void Person::ShowPersonInfo() const {
-	cout << "name : " << name << endl;
-	cout << "age : " << age << endl;
-}
 
 int main() {
 
-	int person_num = 3;
-	Person *persons = new Person[person_num];
-	
-	for (int i = 0; i < person_num; i++) {
-		int	newage;
-		char newname[100];
-		cin >> newname >> newage;
-		int len = strlen(newname) + 1;
-		persons[i].initPerson(newname, newage);
-	}
+	AAA a("what are you doing now", 3);
+	AAA b(a);
+	cout << b.return_value() << endl;
 
-	for(int i =0 ; i< person_num; i++)
-	persons[i].ShowPersonInfo();
-
-	delete[]persons;
-	
 	return 0;
 }

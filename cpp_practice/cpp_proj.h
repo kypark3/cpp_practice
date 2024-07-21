@@ -11,10 +11,10 @@ private:
 	char *name; // ÀÌ¸§
 	int balance; // ÀÜ¾×
 	int ID; // °í°´ ID
-	int account_num;
 
 public:
 	Account(const char name[], int balance, int ID, int account_num);
+	Account(const Account &account);
 	~Account();
 
 	void showAccountInfo() const;
@@ -47,11 +47,17 @@ void Account::showAccountInfo () const {
 	cout << "°èÁÂ ID : " << ID << endl;
 }
 
-Account::Account(const char name[], int balance, int ID, int account_num) :balance(balance) , ID(ID), account_num(account_num){
+Account::Account(const char name[], int balance, int ID, int account_num) :balance(balance) , ID(ID){
 	int name_len = strlen(name) + 1;
 	this->name = new char[name_len];
 	strcpy(this->name, name);
 }
+
+Account::Account(const Account &account) : balance(account.balance) , ID(account.ID){ 
+	name = new char[strlen(account.name) + 1];
+	strcpy(name, account.name);
+}
+
 
 Account::~Account() {
 	cout << "delete Account" << endl;

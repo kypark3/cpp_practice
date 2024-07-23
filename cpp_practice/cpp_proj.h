@@ -10,7 +10,7 @@ class Account {
 private:
 	char *name; // ÀÌ¸§
 	int balance; // ÀÜ¾×
-	int ID; // °í°´ ID
+	const int ID; // °í°´ ID
 
 public:
 	Account(const char name[], int balance, int ID, int account_num);

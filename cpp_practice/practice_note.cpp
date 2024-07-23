@@ -7,30 +7,48 @@ using std::cout;
 using std::cin;
 using std::endl;
 
-
-class note {
+class Boy {
+private:
+	static int n;
+	int height;
+	friend class Girl;
 public:
-	int n1;
-	int n2;
-	note(int n1 , int n2) : n1(n1), n2(n2) {
+
+	Boy(int _height) : height(_height) {
 
 	}
+
+	void showHeightinfo() const {
+		cout << height;
+	}
+
+	static void func1() {
+		func();
+	}
+
+	static void func() {
+
+		func1();
+		cout << "???";
+	}
+
 };
 
+class Girl {
+
+
+public:
+	void showboyfreindinfo(Boy &boy) {
+		boy.showHeightinfo();
+	}
+
+};
+
+
 int main() {
-	note *a = new note(1,2);
-	note &ptr1 = *a;
-
-	cout << a << endl;
-	cout << &ptr1 << endl;
-
-	int num = 10;
-	int *ptr = &num;
-
-	printf("%p\n", &num);
-	printf("%p\n", ptr);
-
-
+	
+	Boy::func();
+	Boy b(1);
 
 	return 0;
 }

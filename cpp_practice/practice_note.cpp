@@ -9,46 +9,42 @@ using std::endl;
 
 class Boy {
 private:
-	static int n;
-	int height;
-	friend class Girl;
+	int a;
+protected:
+	int b;
 public:
+	int c;
+};
 
-	Boy(int _height) : height(_height) {
+class Girl : protected Boy{
 
-	}
-
-	void showHeightinfo() const {
-		cout << height;
-	}
-
-	static void func1() {
-		func();
-	}
-
-	static void func() {
-
-		func1();
-		cout << "???";
+public:
+	void func() {
+		//cout << a; 
+		cout << b;
+		cout << c;
 	}
 
 };
 
-class Girl {
-
+class G1 : private Girl {
 
 public:
-	void showboyfreindinfo(Boy &boy) {
-		boy.showHeightinfo();
+	void func1() {
+		//cout << a;
+		cout << b;
+		cout << c;
 	}
-
 };
 
 
 int main() {
 	
-	Boy::func();
-	Boy b(1);
 
+	Girl g;
+	G1 g1;
+	Boy b;
+	
+	
 	return 0;
 }

@@ -55,7 +55,6 @@ public:
 		cout << "주소 : " << addr << endl;
 		cout << "전화번호 : " << phone << endl;
 	}
-
 };
 
 

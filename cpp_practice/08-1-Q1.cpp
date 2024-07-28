@@ -43,6 +43,11 @@ private:
 public:
 	PermanentWorker(const char _name[], int _salary) : Employ(_name), salary(_salary) {	}
 
+	virtual void AddSalesResult(int value) = 0;
+	/* {
+		cout << "PermananetWorker AddSalesResult" << endl;
+	};
+	*/
 	virtual int GetPay() const { return salary; }
 
 	virtual void ShowSalaryInfo() const {
@@ -59,7 +64,7 @@ private:
 public:
 	SalesWorker(const char _name[], int _salary, double _bonusRatio) : PermanentWorker(_name, _salary), salseResult(0), bonusRatio(_bonusRatio) { }
 
-	void AddSalesResult(int value) {
+	virtual void AddSalesResult(int value) {
 		salseResult += value;
 	}
 
@@ -79,6 +84,7 @@ private:
 	int risk;
 public:
 	ForeignSalesWorker(const char _name[], int _salary, double _bonusRatio, int _risk) : SalesWorker(_name, _salary , _bonusRatio) , risk(_risk){ }
+
 
 	virtual int GetPay() const {
 		return GetRiskPay() + SalesWorker::GetPay();
@@ -133,6 +139,7 @@ public:
 
 int main() {
 
+
 	EmployeeHandler emphadler;
 	ForeignSalesWorker *f1 = new ForeignSalesWorker("pky1", 1000, 0.1, RISK_LEVEL::RISK_A);
 	f1->AddSalesResult(7000);
@@ -148,5 +155,13 @@ int main() {
 
 	emphadler.ShowAllempList();
 	emphadler.ShowTotalSalary();
+
+
+	PermanentWorker *test1 = new SalesWorker("pky", 1000, 0.1);
+	test1->AddSalesResult(7000);
+	test1->ShowSalaryInfo();
+	test1->ShowYourName();
+	cout << test1->GetPay() << endl;
+
 	return 0;
 }

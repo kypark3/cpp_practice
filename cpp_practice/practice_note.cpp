@@ -7,7 +7,6 @@ using std::cout;
 using std::cin;
 using std::endl;
 
-
 class Employ {
 private:
 	char *name;

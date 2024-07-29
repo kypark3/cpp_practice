@@ -1,4 +1,5 @@
-#include "cpp_proj.h"
+#include "cpp_proj_BankingCommonDecl.h"
+#include "cpp_proj_Manager.h"
 
 int main() {
 

@@ -1,7 +1,7 @@
 #include "cpp_proj_BankingCommonDecl.h"
 #include "cpp_proj_NormalAccount.h"
 
-NormalAccount::NormalAccount(const char name[], int balance, int ID, int interest)
+NormalAccount::NormalAccount(String name, int balance, int ID, int interest)
 	: Account(name, balance, ID), interest(interest) { }
 
 void NormalAccount::showAccountInfo() const {

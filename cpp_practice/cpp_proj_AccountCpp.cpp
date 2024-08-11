@@ -1,14 +1,13 @@
 #include "cpp_proj_BankingCommonDecl.h"
 #include "cpp_proj_Account.h"
+#include "cpp_String.h"
 
-Account::Account(const char name[], int balance, int ID) : ID(ID), balance(balance) {
-	this->name = new char[strlen(name) + 1];
-	strcpy(this->name, name);
+Account::Account(String name, int balance, int ID) : ID(ID), balance(balance) {
+	this->name = name;
 }
 
-Account::Account(const Account &account) : balance(account.balance), ID(account.ID) {
-	name = new char[strlen(account.name) + 1];
-	strcpy(name, account.name);
+Account::Account(Account &account) : balance(account.balance), ID(account.ID) {
+	this->name = account.name;
 }
 
 int Account::getBalance() const {
@@ -35,5 +34,4 @@ void Account::showAccountInfo() const {
 
 Account::~Account() {
 	cout << "delete account name" << endl;
-	delete[]name;
 }

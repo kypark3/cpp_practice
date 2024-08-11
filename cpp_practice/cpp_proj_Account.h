@@ -1,15 +1,18 @@
 #ifndef __ACCOUNT_H__
 #define __ACCOUNT_H__
 
+#include "cpp_String.h"
+
 class Account {
 private:
-	char *name; // ¿Ã∏ß
+	String name;
+	//char *name; // ¿Ã∏ß
 	int balance; // ¿‹æ◊
 	const int ID; // ∞Ì∞¥ ID
 
 public:
-	Account(const char name[], int balance, int ID);
-	Account(const Account &account);
+	Account(String name, int balance, int ID);
+	Account(Account &account);
 	virtual void showAccountInfo() const;
 	int getAccountID() const;
 	virtual int getBalance() const;

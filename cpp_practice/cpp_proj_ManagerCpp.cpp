@@ -4,6 +4,7 @@
 #include "cpp_proj_Account.h"
 #include "cpp_proj_NormalAccount.h"
 #include "cpp_proj_HighCreditAccount.h"
+#include "cpp_String.h"
 
 Manager::Manager() : account_num(0) { }
 
@@ -81,7 +82,7 @@ void Manager::showAllAccount() const {
 
 void Manager::makeAccount() {
 	int choice;
-	char name[10];
+	String name;
 	int ID = -1;
 	int balance = -1;
 	int interest;

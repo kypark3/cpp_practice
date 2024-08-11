@@ -2,7 +2,7 @@
 #include "cpp_proj_HighCreditAccount.h"
 
 
-HighCreditAccount::HighCreditAccount(const char name[], int balance, int ID, int interest, int creditGrade)
+HighCreditAccount::HighCreditAccount(String name, int balance, int ID, int interest, int creditGrade)
 	: NormalAccount(name, balance, ID, interest), creditGrade(creditGrade) { }
 
 void HighCreditAccount::showAccountInfo() const {
